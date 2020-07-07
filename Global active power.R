@@ -1,7 +1,4 @@
 power<-read.table("household_power_consumption.txt",stringsAsFactors = FALSE, header = TRUE, sep = ";")
-tail(power)
-class(Date)
-typeof(Date)
 power1<-as.numeric(power2$Global_active_power)
 power2<-subset(power,Date == "1/2/2007" | Date == "2/2/2007")
 View(power1)
