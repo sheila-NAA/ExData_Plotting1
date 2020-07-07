@@ -1,0 +1,8 @@
+power<-read.table("household_power_consumption.txt",stringsAsFactors = FALSE, header = TRUE, sep = ";")
+tail(power)
+global<-subset(power, Date =="1/2/2007" | Date == "2/2/2007")
+powerdata<- strptime(paste(global$Date,global$Time,sep= ""),"%d/%m/%Y %H:%M:%S")
+powerdata1<-cbind(global, powerdata)
+with(global,plot(powerdata,Global_active_power,type ="l",ylab= "Global Active Power (kilowatts)",xlab = ""))
+dev.copy(png,file="plot2.png",width= 480, height= 480)
+dev.off()
